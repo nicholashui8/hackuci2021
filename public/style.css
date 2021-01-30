@@ -1,6 +1,7 @@
 body {
   font-family: 'Montserrat', sans-serif;
   text-align: center;
+  background-color: #FDE8CD;
 }
 
 /* Nav Bar */
@@ -23,19 +24,15 @@ body {
 /* Features */
 #features {
   padding: 5%;
-  background-color: white;
   z-index: 1;
   position: relative;
 }
 
 .feature-icon {
-  color: #ef8172;
+  color: #ff4c68;
   padding-bottom: 5px;
 }
 
-.feature-icon:hover {
-  color: #ff4c68;
-}
 
 .feature-description {
   color: #8f8f8f;
@@ -114,4 +111,13 @@ body {
   background: rgba(0, 0, 0, 0.75);
   font-size: 14px;
   text-align: center;
+}
+
+
+/* Footer */
+#footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
 }
