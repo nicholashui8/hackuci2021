@@ -93,6 +93,15 @@ app.post('/confirmLogin', (req, res) => {
 });
 
 
+app.get('/getNumOfFolders', async (req, res) => {
+    let data = await bucket.getFiles({ prefix: `${user.email}/` })
+    numberOfFiles = data[0].length / 2
+    res.send({
+        numberOfFiles: numberOfFiles,
+    })
+});
+
+
 app.post('/api', async (req, res) => {
     console.log("post request recieved");
     console.log(req.files)
