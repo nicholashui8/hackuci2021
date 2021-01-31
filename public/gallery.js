@@ -22,7 +22,7 @@ async function getFiles() {
         console.log(storageRef);
 
         storageRef.listAll().then(function (result) {
-          console.log(result);
+          console.log("AAA");
           result.items.forEach(function (folder) {
             console.log("BBB");
             displayFolder(folder);
@@ -34,6 +34,7 @@ async function getFiles() {
         });
       }
     })
+
 }
 
 function displayFolder(folder) {

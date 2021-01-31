@@ -24,26 +24,26 @@
     <div class="container-fluid">
       <!-- Nav Bar -->
       <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="#"><i class="fas fa-seedling"></i>VISION</a>
+        <a class="navbar-brand" href="userHome.html"><i class="fas fa-seedling"></i>VISION</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="index2.html">Home</a>
+              <a class="nav-link" href="userHome.html">Home</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html" id="Upload">Upload</a>
+              <a class="nav-link" href="upload.html" id="Upload">Upload</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="index.html" id="Gallery">Gallery</a>
+              <a class="nav-link" href="gallery.html" id="Gallery">Gallery</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="#">Help</a>
             </li>
-            <li class="nav-item" id="InOut">
-              <a class="nav-link" href="index.html">Login</a>
+            <li class="nav-item">
+              <a class="nav-link" onclick="logout()" href="#">Logout</a>
             </li>
           </ul>
         </div>
@@ -52,15 +52,15 @@
       <!-- Title -->
       <div class="row bt">
         <div class="col">
-          <h1 class="display-1">VISION</h1>
+          <h1 class="display-1">Welcome!</h1>
           <h2>Reading For You, So You Don't Have To.</h2>
           <p>
             Don't want to read it yourself? Vision is a tool that lets you
             uploads papers, documents, letter, etc. to the cloud and reads it
             aloud for you when you need it.
           </p>
-          <button onclick ="loginPage()" type="button" class="btn btn-primary" id ="bt1">Sign Up</button>
-          <button onclick ="loginPage()" type="button" class="btn btn-primary" id ="bt2">Login</button>
+          <button onclick ="uploadPage()" type="button" class="btn btn-primary" id ="bt1">Upload</button>
+          <button onclick ="galleryPage()" type="button" class="btn btn-primary" id ="bt2">View Gallery</button>
         </div>
         <div class="col">
           <img id="home-image" src="images/upload1.png" alt="Main picture">
@@ -119,7 +119,7 @@
       };
       firebase.initializeApp(config);
     </script>
-    <script src="index2.js"></script>
+    <script src="userHome.js"></script>
   </footer>
 </body>
 

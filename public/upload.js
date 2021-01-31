@@ -96,7 +96,7 @@ document.getElementById("submit-button").addEventListener("click", () => {
 
 
 function logout() {
-  window.location.href = "index.html";
+  window.location.href = "index2.html";
 
   firebase.auth().signOut();
   console.log("Success")
