@@ -1,4 +1,4 @@
-let length = []
+let folders = []
 window.onload = function () {
   this.getFiles();
 }
@@ -18,31 +18,25 @@ async function getFiles() {
       console.log("number of folders: " + numberOfFiles);
 
       for (i = 1; i < numberOfFiles + 1; i++) {
+        let folder = []
         var storageRef = firebase.storage().ref(email + "/" + "item" + i);
-        console.log(storageRef);
 
         storageRef.listAll().then(function (result) {
-          console.log("AAA");
-          result.items.forEach(function (folder) {
-            console.log("BBB");
-            displayFolder(folder);
+          result.items.forEach(function (item) {
+            folder.push(item.getDownloadURL())
           });
 
 
         }).catch(function (error) {
           console.log(error)
         });
+        folders.push(folder);
       }
     })
-
+    console.log(folders);
 }
 
-function displayFolder(folder) {
-  folder.getDownloadURL().then(function (url) {
-    length.push(url);
-    console.log(length);
-  })
-}
+
 
 function logout() {
   window.location.href = "index.html";
