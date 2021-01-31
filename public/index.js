@@ -5,7 +5,7 @@ firebase.auth().onAuthStateChanged(function (user) {
 
         if (user != null) {
             localStorage.setItem("email_id", user.email);
-            window.location.href = "index2.html";
+            window.location.href = "userHome.html";
             var email_id = user.email;
             const userInfo = {
                 email: user.email.replaceAll(".", ""),
@@ -62,9 +62,8 @@ function signup() {
 
 
 function logout() {
-    window.location.href = "index.html";
+    window.location.href = "index2.html";
 
     firebase.auth().signOut();
     console.log("Success")
 }
-
