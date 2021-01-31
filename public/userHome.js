@@ -11,3 +11,7 @@ function uploadPage(){
 function galleryPage(){
   window.location.href = "gallery.html";
 }
+
+function help(){
+  window.location.href = "help.html";
+}

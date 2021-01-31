@@ -1,7 +1,9 @@
-<html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
 
 <head>
-  <title>Gallery</title>
+  <meta charset="utf-8">
+  <title></title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
     integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -13,7 +15,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
     integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
     crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Ubuntu&display=swap"
@@ -29,7 +32,7 @@
     <div class="container-fluid">
       <!-- Nav Bar -->
       <nav class="navbar navbar-expand-lg navbar-light">
-        <a class="navbar-brand" href="index2.html"><i class="fas fa-seedling"></i>VISION</a>
+        <a class="navbar-brand" href="#"><i class="fas fa-seedling"></i>VISION</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
           aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -37,36 +40,29 @@
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
           <ul class="navbar-nav ml-auto">
             <li class="nav-item">
-              <a class="nav-link" href="#" id="About">Home</a>
+              <a class="nav-link" href="userHome.html">Home</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="upload.html" id="Upload">Upload</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="Gallery">Gallery</a>
+              <a class="nav-link" href="gallery.html" id="Gallery">Gallery</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="#" id="Help">Help</a>
+              <a class="nav-link" href="#">Help</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" onclick="logout()" href="#">Login</a>
+              <a class="nav-link" onclick="logout()" href="#">Logout</a>
             </li>
           </ul>
         </div>
       </nav>
     </div>
   </section>
-
-  <!-- Login Title -->
-  <div id="login_div" class="main-div">
-    <h2><i class="fas fa-seedling"></i>VISION</h3>
-      <input class="form-control" type="email" placeholder="Email" id="email_field" autocomplete="off" />
-      <input class="form-control" type="password" placeholder="Password" id="password_field" autocomplete="off" />
-      <button onclick="login()" type="button" class="btn btn-primary">Login</button>
-      <p id="loginP">or</p>
-      <button onclick="signup()" type="button" class="btn btn-light">Sign Up</button>
-
+  <div class="help-body">
+    <h1 class="display-3">How To Use VISION</h1>
   </div>
+
 
   <footer id="footer">
     <i class="footer-icon fab fa-twitter"></i>
@@ -75,23 +71,22 @@
     <i class="footer-icon fas fa-envelope"></i>
     <p>© Copyright 2021 VISION</p>
 
-
-  <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script>
-  <script>
-    // Initialize Firebase
-    var config = {
-      apiKey: "AIzaSyB3r2Wv9EnbRtgU8kwBGstlNg0hgio4GY0",
-      authDomain: "login-11a43.firebaseapp.com",
-      projectId: "login-11a43",
-      storageBucket: "login-11a43.appspot.com",
-      messagingSenderId: "96026686666",
-      appId: "1:96026686666:web:4b812078eb8bc3109af033",
-      measurementId: "G-XZP0V7X89Z"
-    };
-    firebase.initializeApp(config);
-  </script>
-  <script src="index.js"></script>
-
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB3r2Wv9EnbRtgU8kwBGstlNg0hgio4GY0",
+        authDomain: "login-11a43.firebaseapp.com",
+        projectId: "login-11a43",
+        storageBucket: "login-11a43.appspot.com",
+        messagingSenderId: "96026686666",
+        appId: "1:96026686666:web:4b812078eb8bc3109af033",
+        measurementId: "G-XZP0V7X89Z"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="upload.js"></script>
+  </footer>
 </body>
 
 </html>

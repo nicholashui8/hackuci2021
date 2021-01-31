@@ -12,13 +12,19 @@ body {
 /* Title */
 #title {
   background-color: #ff4c68;
+  padding-bottom: 10px;
 }
 
 #home-image {
   width: 25rem;
   height: auto;
-  padding: 70px 0;
+  padding: 70px 0 10px 0;
   border: 3px;
+}
+
+/* Help */
+.help-body{
+  padding-top: 20px;
 }
 
 /* Features */
