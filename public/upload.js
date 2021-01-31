@@ -174,3 +174,4 @@ function logout() {
   firebase.auth().signOut();
   console.log("Success")
 }
+

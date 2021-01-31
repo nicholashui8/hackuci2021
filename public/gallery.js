@@ -82,5 +82,4 @@ async function listOut(){
     row.appendChild(col);
     i++;
   });
-  return;
 }
