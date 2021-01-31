@@ -1,90 +1,106 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Ubuntu&display=swap" rel="stylesheet">
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+    crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;900&family=Ubuntu&display=swap"
+    rel="stylesheet">
 
-    <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
-    <script src="https://kit.fontawesome.com/650e653656.js" crossorigin="anonymous"></script>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <section id="title">
-      <div class="container-fluid">
-        <!-- Nav Bar -->
-        <nav class="navbar navbar-expand-lg navbar-light">
-          <a class="navbar-brand" href="#"><i class="fas fa-seedling"></i>VISION</a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item">
-                <a class="nav-link" href="userHome.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="upload.html" id="Upload">Upload</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="gallery.html" id="Gallery">Gallery</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="#">Help</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" onclick="logout()"  href="#">Logout</a>
-              </li>
-            </ul>
-          </div>
-        </nav>
-      </div>
-    </section>
+  <!-- reference your copy Font Awesome here (from our CDN or by hosting yourself) -->
+  <script src="https://kit.fontawesome.com/650e653656.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    <!-- Drop and Load File -->
-    <h2>File Upload & Image Preview</h2>
-    <div class="drop-zone">
-      <span class="drop-zone__prompt">Drop file here or click to upload</span>
-      <input type="file" accept="image/*" id="input-button" class="drop-zone__input" name="img">
+<body>
+  <section id="title">
+    <div class="container-fluid">
+      <!-- Nav Bar -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="#"><i class="fas fa-seedling"></i>VISION</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup"
+          aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="userHome.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="upload.html" id="Upload">Upload</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="gallery.html" id="Gallery">Gallery</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Help</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" onclick="logout()" href="#">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
     </div>
-    <button id="submit-button" type="submit" class="btn btn-light">Upload Image</button>
-    <p>or</p>
-    <button type="submit" class="btn btn-light">View Gallery</button>
+  </section>
+
+  <!-- Drop and Load File -->
+  <h2>File Upload & Image Preview</h2>
+  <div class="drop-zone">
+    <span class="drop-zone__prompt">Drop file here or click to upload</span>
+    <input type="file" accept="image/*" id="input-button" class="drop-zone__input" name="img">
+  </div>
+  <button id="submit-button" type="submit" class="btn btn-light">Upload Image</button>
+  <p>or</p>
+  <button type="submit" class="btn btn-light">View Gallery</button>
+
+  <div class="spinner-border text-primary" id="spinner" role="status"
+    style="display:none; text-align: center; margin: auto;">
+    <span class="sr-only">Loading...</span>
+  </div>
 
 
 
 
+  <footer id="footer">
+    <i class="footer-icon fab fa-twitter"></i>
+    <i class="footer-icon fab fa-facebook-f"></i>
+    <i class="footer-icon fab fa-instagram"></i>
+    <i class="footer-icon fas fa-envelope"></i>
+    <p>© Copyright 2021 VISION</p>
 
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script>
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyB3r2Wv9EnbRtgU8kwBGstlNg0hgio4GY0",
+        authDomain: "login-11a43.firebaseapp.com",
+        projectId: "login-11a43",
+        storageBucket: "login-11a43.appspot.com",
+        messagingSenderId: "96026686666",
+        appId: "1:96026686666:web:4b812078eb8bc3109af033",
+        measurementId: "G-XZP0V7X89Z"
+      };
+      firebase.initializeApp(config);
+    </script>
+    <script src="upload.js"></script>
+  </footer>
+</body>
 
-    <footer id="footer">
-      <i class="footer-icon fab fa-twitter"></i>
-      <i class="footer-icon fab fa-facebook-f"></i>
-      <i class="footer-icon fab fa-instagram"></i>
-      <i class="footer-icon fas fa-envelope"></i>
-      <p>© Copyright 2021 VISION</p>
-
-      <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase.js"></script>
-      <script>
-        // Initialize Firebase
-        var config = {
-          apiKey: "AIzaSyB3r2Wv9EnbRtgU8kwBGstlNg0hgio4GY0",
-          authDomain: "login-11a43.firebaseapp.com",
-          projectId: "login-11a43",
-          storageBucket: "login-11a43.appspot.com",
-          messagingSenderId: "96026686666",
-          appId: "1:96026686666:web:4b812078eb8bc3109af033",
-          measurementId: "G-XZP0V7X89Z"
-        };
-        firebase.initializeApp(config);
-      </script>
-      <script src="upload.js"></script>
-    </footer>
-  </body>
 </html>

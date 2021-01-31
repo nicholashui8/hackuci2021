@@ -72,6 +72,9 @@ function updateThumbnail(dropZoneElement, file) {
 
 
 document.getElementById("submit-button").addEventListener("click", () => {
+  showSpinner()
+  document.getElementById("submit-button").disabled = true;
+
   const selectedFile = document.getElementById('input-button').files[0];
   //const selectedFile = "asf"
   console.log("upload button has been clicked")
@@ -87,13 +90,24 @@ document.getElementById("submit-button").addEventListener("click", () => {
       body: fd
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        console.log(data)
+        hideSpinner()
+        document.getElementById("submit-button").disabled = false;
+      })
       .catch(err => console.error(err));
   } else {
     console.log("User has not uploaded image");
   }
 });
 
+function showSpinner() {
+  document.getElementById('spinner').style.display = 'block';
+}
+
+function hideSpinner() {
+  document.getElementById('spinner').style.display = 'none';
+}
 
 function logout() {
   window.location.href = "index2.html";
