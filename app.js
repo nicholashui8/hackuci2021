@@ -96,9 +96,10 @@ app.post('/confirmLogin', (req, res) => {
 app.get('/getNumOfFolders', async (req, res) => {
     let data = await bucket.getFiles({ prefix: `${user.email}/` })
     numberOfFiles = data[0].length / 2
-    res.send({
+    console.log("Number of files!: " + numberOfFiles);
+    res.json({
         numberOfFiles: numberOfFiles,
-    })
+    });
 });
 
 
