@@ -1,3 +1,7 @@
+window.onload = function () {
+  document.getElementById('display').style.display = "none";
+}
+
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".drop-zone");
 
@@ -84,6 +88,7 @@ document.getElementById("submit-button").addEventListener("click", () => {
     const fd = new FormData();
     fd.append('image', selectedFile);
 
+    let folder = []
     // send `POST` request (upload image to backend)
     fetch('/api', {
       method: 'POST',
@@ -91,9 +96,63 @@ document.getElementById("submit-button").addEventListener("click", () => {
     })
       .then(res => res.json())
       .then(data => {
-        console.log(data)
+        let folderNumber = data.numberOfFolders.toString()
+        console.log(folderNumber)
         hideSpinner()
+        var email = localStorage.getItem("email_id");
+        email = email.replaceAll(".", "");
+        var storageRef = firebase.storage().ref(email + "/" + "item" + folderNumber);
+        console.log(email + "/" + "item" + folderNumber)
+        storageRef.listAll()
+          .then((result) => {
+
+            console.log(result.items[0])
+            result.items[0].getDownloadURL()
+              .then(url => {
+                console.log(url)
+                document.getElementById('display').style.display = "block";
+                document.getElementById('audioPlayer').src = url;
+
+              })
+              .then(() => {
+                result.items[1].getDownloadURL()
+                  .then(url => {
+                    console.log(url)
+                    document.getElementById('display').style.display = "block";
+                    document.getElementById('audioPlayer').src = url;
+
+                  })
+              })
+          })
+          .catch(err => console.log(err))
+        // storageRef.listAll().then(function (result) {
+        //   result.items.forEach(function (item) {
+        //     console.log("AAA");
+        //     folder.push(item.getDownloadURL())
+        //   });
+        //console.log(folder[0])
+        //document.getElementById('display').src = folder[0].i;
+        //document.getElementById('display').style.display = "block";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
         document.getElementById("submit-button").disabled = false;
+        var email = localStorage.getItem("email_id");
+        email = email.replaceAll(".", "");
+
       })
       .catch(err => console.error(err));
   } else {
@@ -115,3 +174,4 @@ function logout() {
   firebase.auth().signOut();
   console.log("Success")
 }
+
