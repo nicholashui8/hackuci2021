@@ -20,7 +20,6 @@ async function getFiles() {
       for (i = 1; i < numberOfFiles + 1; i++) {
         let folder = []
         var storageRef = firebase.storage().ref(email + "/" + "item" + i);
-        console.log(storageRef);
 
         storageRef.listAll().then(function (result) {
           result.items.forEach(function (item) {
