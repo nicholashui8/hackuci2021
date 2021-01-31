@@ -113,6 +113,15 @@ body {
   text-align: center;
 }
 
+/* Gallery */
+.galleryImage{
+  width: 200px;
+  height:200px;
+}
+
+.item{
+  margin: 0 0 0 0;
+}
 
 /* Footer */
 #footer {

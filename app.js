@@ -71,6 +71,7 @@ const uploadFile = async (audioFilePath, imageFilePath) => {
         },
     });
     console.log("uploaded audio and image file")
+    return;
 }
 
 const getCurrentNumberOfItems = async () => {
@@ -129,12 +130,16 @@ app.post('/api', async (req, res) => {
             //sending data back to frontend
 
             console.log("upload audio start");
-            uploadFile("output.mp3", "./uploads/" + avatar.name);
+            await uploadFile("output.mp3", "./uploads/" + avatar.name);
             console.log("upload audio end");
+            let fileData = await bucket.getFiles({ prefix: `${user.email}/` })
+            console.log("num of files: " + fileData[0].length)
+            numberOfFolders = fileData[0].length / 2
             res.send({
                 status: true,
                 message: 'File is uploaded',
                 data: data[0],
+                numberOfFolders: numberOfFolders,
             });
         }
     } catch (err) {
@@ -157,7 +162,7 @@ async function imageToText(file) {
     const detections = result.textAnnotations;
     console.log('Text:');
     //detections.forEach(text => console.log(text));
-    return detections
+    return detections;
 }
 
 
@@ -181,4 +186,5 @@ async function textToVoice(text) {
     const file = await writeFile('output.mp3', response.audioContent, 'binary');
     console.log(file)
     console.log('Audio content written to file: output.mp3');
+    return;
 }

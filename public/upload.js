@@ -1,3 +1,7 @@
+window.onload = function () {
+  document.getElementById('display').style.display = "none";
+}
+
 document.querySelectorAll(".drop-zone__input").forEach((inputElement) => {
   const dropZoneElement = inputElement.closest(".drop-zone");
 
@@ -72,6 +76,9 @@ function updateThumbnail(dropZoneElement, file) {
 
 
 document.getElementById("submit-button").addEventListener("click", () => {
+  showSpinner()
+  document.getElementById("submit-button").disabled = true;
+
   const selectedFile = document.getElementById('input-button').files[0];
   //const selectedFile = "asf"
   console.log("upload button has been clicked")
@@ -81,19 +88,85 @@ document.getElementById("submit-button").addEventListener("click", () => {
     const fd = new FormData();
     fd.append('image', selectedFile);
 
+    let folder = []
     // send `POST` request (upload image to backend)
     fetch('/api', {
       method: 'POST',
       body: fd
     })
       .then(res => res.json())
-      .then(data => console.log(data))
+      .then(data => {
+        let folderNumber = data.numberOfFolders.toString()
+        console.log(folderNumber)
+        hideSpinner()
+        var email = localStorage.getItem("email_id");
+        email = email.replaceAll(".", "");
+        var storageRef = firebase.storage().ref(email + "/" + "item" + folderNumber);
+        console.log(email + "/" + "item" + folderNumber)
+        storageRef.listAll()
+          .then((result) => {
+
+            console.log(result.items[0])
+            result.items[0].getDownloadURL()
+              .then(url => {
+                console.log(url)
+                document.getElementById('display').style.display = "block";
+                document.getElementById('audioPlayer').src = url;
+
+              })
+              .then(() => {
+                result.items[1].getDownloadURL()
+                  .then(url => {
+                    console.log(url)
+                    document.getElementById('display').style.display = "block";
+                    document.getElementById('audioPlayer').src = url;
+
+                  })
+              })
+          })
+          .catch(err => console.log(err))
+        // storageRef.listAll().then(function (result) {
+        //   result.items.forEach(function (item) {
+        //     console.log("AAA");
+        //     folder.push(item.getDownloadURL())
+        //   });
+        //console.log(folder[0])
+        //document.getElementById('display').src = folder[0].i;
+        //document.getElementById('display').style.display = "block";
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        document.getElementById("submit-button").disabled = false;
+        var email = localStorage.getItem("email_id");
+        email = email.replaceAll(".", "");
+
+      })
       .catch(err => console.error(err));
   } else {
     console.log("User has not uploaded image");
   }
 });
 
+function showSpinner() {
+  document.getElementById('spinner').style.display = 'block';
+}
+
+function hideSpinner() {
+  document.getElementById('spinner').style.display = 'none';
+}
 
 function logout() {
   window.location.href = "index2.html";
